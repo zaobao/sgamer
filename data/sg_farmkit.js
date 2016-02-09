@@ -6,7 +6,7 @@
 // @include     http://bbs.sgamer.com/thread-*.html
 // @include     http://bbs.sgamer.com/*mod=viewthread*
 // @include     http://bbs.sgamer.com/*mod=forumdisplay*
-// @version     3.3.0
+// @version     3.3.5
 // @grant       none
 // ==/UserScript==
 
@@ -68,16 +68,18 @@ var fastFormNames = ["fastpostform", "vfastpostform"];
 function createCommentButtonByReplyButton(fastre) {
 	var a = document.createElement("a");
 	a.className = "cmmnt";
-	a.onclick = function () {
-		showWindow('comment', this.href, 'get', 1);
-		setTimeout(function () {
-			var commentform = document.getElementById("commentform");
-			var action = commentform.action;
-			action = action.replace(/tid=[0-9]+/, fastre.href.match(/tid=[0-9]+/));
-			action = action.replace(/pid=[0-9]+/, fastre.href.match(/repquote=[0-9]+/)[0].replace("repquote","pid"));
-			commentform.action = action;
-		}, 500);
-	};
+	var tid = fastre.href.match(/tid=[0-9]+/);
+	var pid = fastre.href.match(/repquote=[0-9]+/)[0].replace("repquote","pid");
+	a.setAttribute("onclick", 
+		"showWindow('comment', this.href, 'get', 1);\n" +
+		"setTimeout(function () {\n" +
+			"var commentform = document.getElementById(\"commentform\");\n" +
+			"var action = commentform.action;\n" +
+			"action = action.replace(/tid=[0-9]+/, \"" + tid + "\");\n" +
+			"action = action.replace(/pid=[0-9]+/, \"" + pid + "\");\n" +
+			"commentform.action = action;\n" +
+		"}, 500);"
+	);
 	a.href = "forum.php?mod=misc&action=comment&tid=12360082&pid=30553315&extra=page%3D1&page=1";
 	a.appendChild(document.createTextNode("点评"));
 	return a;
@@ -358,7 +360,7 @@ window.previewThread = function(tid, tbody) {
 					fastre = as[k];
 					// 底部
 					var firstNode = fastre.parentNode.getElementsByTagName("a")[0];
-					if (firstNode.className != "cmmnt")
+					if (firstNode.className != "cmmnt" && fastre.href.match(/repquote=[0-9]+/))
 					{
 						fastre.parentNode.insertBefore(createCommentButtonByReplyButton(fastre), fastre);
 					}
