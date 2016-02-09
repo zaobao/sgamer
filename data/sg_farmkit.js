@@ -6,7 +6,7 @@
 // @include     http://bbs.sgamer.com/thread-*.html
 // @include     http://bbs.sgamer.com/*mod=viewthread*
 // @include     http://bbs.sgamer.com/*mod=forumdisplay*
-// @version     3.3.6
+// @version     3.3.7
 // @grant       none
 // ==/UserScript==
 
@@ -48,6 +48,7 @@ var rrr = {
 	"(剧|为什么这么)\\*": "$1毒",
 	"(意)\\*": "$1淫",
 	"(汉)\\*": "$1奸",
+	"(练)\\*": "$1习",
 	"\\*(情|格|感|别|取向|质)": "性$1",
 	"\\*(龙|镖|瘤|奶|狗|素)": "毒$1",
 	"\\*(恨)": "仇$1",
