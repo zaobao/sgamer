@@ -1,0 +1,16 @@
+{
+  "title": "sgamer",
+  "name": "sgamer",
+  "version": "0.0.1",
+  "description": "SG doto best doto",
+  "main": "main.js",
+  "author": "zaobao",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MPL",
+  "keywords": [
+    "jetpack"
+  ]
+}
