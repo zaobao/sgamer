@@ -6,7 +6,7 @@
 // @include     http://bbs.sgamer.com/thread-*.html
 // @include     http://bbs.sgamer.com/*mod=viewthread*
 // @include     http://bbs.sgamer.com/*mod=forumdisplay*
-// @version     3.3.5
+// @version     3.3.6
 // @grant       none
 // ==/UserScript==
 
@@ -32,6 +32,7 @@ var pcrr = {
 	"江": "&#x6C5F;",
 	"胡": "&#x80E1;",
 	"习": "&#x4E60;",
+	"泡面": "&#x6CE1;&#x9762;",
 	"鸡巴": "&#x9E21;&#x5DF4;",
 	"进口": "&#x8FDB;&#x53E3;",
 	"轮子": "&#x8F6E;&#x5B50;",
