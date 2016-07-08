@@ -360,12 +360,12 @@ window.previewThread = function(tid, tbody) {
 			for (var k = 0; k < asLength; k++) {
 				if (as[k].className == "fastre") {
 					fastre = as[k];
-					// 底部
-					var firstNode = fastre.parentNode.getElementsByTagName("a")[0];
-					if (firstNode.className != "cmmnt" && fastre.href.match(/repquote=[0-9]+/))
-					{
-						fastre.parentNode.insertBefore(createCommentButtonByReplyButton(fastre), fastre);
-					}
+					// 底部，撅腚领域功能，使用会被封
+					//var firstNode = fastre.parentNode.getElementsByTagName("a")[0];
+					//if (firstNode.className != "cmmnt" && fastre.href.match(/repquote=[0-9]+/))
+					//{
+					//	fastre.parentNode.insertBefore(createCommentButtonByReplyButton(fastre), fastre);
+					//}
 				}
 			}
 			// 顶部
